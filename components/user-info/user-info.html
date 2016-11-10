@@ -50,7 +50,8 @@
                            ng-required="true"
                     />
                     <div class="help-block" ng-messages="userForm.phone.$error" ng-if="userForm.phone.$touched">
-                        <div ng-messages-include="errorMessages.html"></div>
+                         <div ng-messages-include="errorMessages.html"></div>
+                        <div ng-message="pattern">Must be a valid 10 digit phone number</div>          
                     </div>
                 </div>
 
