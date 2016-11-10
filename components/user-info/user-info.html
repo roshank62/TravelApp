@@ -1,0 +1,61 @@
+<form role="form" name="userForm" action="" method="post" novalidate>
+    <div class="row setup-content" id="step-1">
+        <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+
+                <h3>Please Fill Detail's</h3>
+                <div class="form-group" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
+                    <label class="control-label">First Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter First Name"
+                           ng-model="name"
+                           ng-minlength="3"
+                           ng-maxlength="15"
+                           ng-pattern="/^[a-zA-Z ]{1,25}$/"
+                           ng-required="true"/>
+                    <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                        <div ng-messages-include="errorMessages.html"></div>
+                        <span ng-show="userForm.name.$error.pattern" >please enter  valid string .</span>
+                    </div>
+
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': userForm.LastName.$touched && userForm.LastName.$invalid }">
+                    <label class="control-label">Last Name</label>
+                    <input name="LastName" type="text" class="form-control" placeholder="Enter Last Name"
+                           ng-model="LastName"
+                           ng-minlength="3"
+                           ng-maxlength="15"
+                           ng-pattern="/^[a-zA-Z ]{1,25}$/"
+                           ng-required="true"/>
+                    <div class="help-block" ng-messages="userForm.LastName.$error" ng-if="userForm.LastName.$touched">
+                        <div ng-messages-include="errorMessages.html"></div>
+                        <span ng-show="userForm.LastName.$error.pattern" >please enter  valid string .</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': userForm.email.$touched && userForm.email.$invalid }">
+                    <label class="control-label">Email</label>
+                    <input name="email" type="email"  class="form-control" placeholder="Enter E-mail"
+                           ng-model="email"
+                           ng-pattern="^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.(?:[A-Z]{2,}|com|org))*$"
+                           ng-required="true"
+                    />
+                    <div class="help-block"  ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                        <div ng-messages-include="errorMessages.html"></div>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{ 'has-error': userForm.phone.$touched && userForm.phone.$invalid }">
+                    <label class="control-label">Mobile Number</label>
+                    <input name="phone" type="text"  class="form-control" placeholder="Enter Mobile No..."
+                           ng-model="phone"
+                           ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/"
+                           ng-required="true"
+                    />
+                    <div class="help-block" ng-messages="userForm.phone.$error" ng-if="userForm.phone.$touched">
+                        <div ng-messages-include="errorMessages.html"></div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ng-click="handleClick()" ng-disabled="userForm.$invalid">Next</button>
+
+        </div>
+    </div>
+</form>
